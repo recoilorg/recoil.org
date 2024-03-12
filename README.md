@@ -20,3 +20,7 @@ This runs using a pre-release version of Svelte 5, so will need updating once it
 ## Notes
 
 This is an initial minimal build so we find it easier to maintain and extend
+
+## Screenshot
+
+![The website](/screenshot.jpeg)
