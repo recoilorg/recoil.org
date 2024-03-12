@@ -9,8 +9,7 @@ Services we are running:
 - anil.recoil.org
 - nick.recoil.org
 
-
-## Build
+## Build
 
 This runs using a pre-release version of Svelte 5, so will need updating once it's out.
 
