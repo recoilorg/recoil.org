@@ -154,4 +154,4 @@
     main(canvasElement);
   });
 </script>
-<canvas bind:this={canvasElement} width="420" height="600" class="absolute no-scrollbar" style="z-index:-1; display:block"></canvas>
+<canvas bind:this={canvasElement} width="420" height="600" class="absolute no-scrollbar" style="z-index:-1; display:block; animation: 2s ease-out 0s 1 fadeIn;"></canvas>

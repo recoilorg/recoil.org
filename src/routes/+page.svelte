@@ -1,8 +1,5 @@
 <script lang='ts'>
-  export const prerender = true;
-
-  import Fa from 'svelte-fa';
-  import { faEnvelope, faDatabase, faTerminal, faRecordVinyl } from '@fortawesome/free-solid-svg-icons'
+  import { faEnvelope, faDatabase, faTerminal } from '@fortawesome/free-solid-svg-icons'
   import { faMastodon } from '@fortawesome/free-brands-svg-icons';
 
   import HexIcon from '$lib/components/hex-icon.svelte';
@@ -91,10 +88,9 @@
   ];
 
   let phrases = services.map(s => s.name.toLowerCase());
-
 </script>
 <svelte:head>
-  <title>recoil.org - Homepage</title> 
+  <title>recoil.org - Homepage</title>
 </svelte:head>
 <div class="w-full mx-auto justify-center p-10" style="z-index:2">
   <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-gray-800">
@@ -140,7 +136,7 @@
           <div class="flex items-center gap-4">
             <img width="64px" height="64px" class="w-16 h-16 rounded-xl" src={avatar.path} alt="{avatar.alt}">
             <div>
-              <div class="font-medium text-gray-800">{avatar.alt}</div>
+              <div class="font-semibold text-gray-800">{avatar.alt}</div>
               <div class="text-sm text-gray-500 text-blue-600">{avatar.link}</div>
             </div>
           </div>  
