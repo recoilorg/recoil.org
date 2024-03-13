@@ -9,13 +9,20 @@ Services we are running:
 - anil.recoil.org
 - nick.recoil.org
 
-## Build
+## Local development
 
 This runs using a pre-release version of Svelte 5, so will need updating once it's out.
 
 1. `pnpm install`
 2. `pnpm dev` - Spin up the local server on http://localhost:5173
 3. `pnpm build` - Output the static site into the build/ directory
+
+## Docker build
+
+The docker image binds to port 80, so replace the local 3333 with whatever you like.
+
+1. `docker build . -t recoilorg`
+2. `docker run -p 3333:80 recoilorg`
 
 ## Notes
 
