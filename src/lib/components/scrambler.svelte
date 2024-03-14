@@ -62,9 +62,14 @@
     const el = document.querySelector('.scramble-text')
     const fx = new TextScramble(el)
 
+    // Create an array of indices from 0 to the length of the phrases array
+    // and randomise the order of the indices
+    const randomisedIndices = Array.from({ length: phrases.length }, (_, i) => i)
+      .sort(() => Math.random() - 0.5)
+
     let counter = 0
     const next = () => {
-      fx.setText(phrases[counter]).then(() => {
+      fx.setText(phrases[randomisedIndices[counter]]).then(() => {
         setTimeout(next, 5000)
       })
       counter = (counter + 1) % phrases.length

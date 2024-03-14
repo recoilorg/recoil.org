@@ -3,6 +3,8 @@
 
   const TAU = 2 * Math.PI;
 
+  type Point = { x: number, y: number };
+
   function getRadianAngle(degreeValue: number) {
     return degreeValue * Math.PI / 180;
   }
@@ -54,7 +56,7 @@
   };
 
   const getColorForUV = (u: number, v: number) => {
-    v = 1 - v;
+    v = 1 - v; // because we've rotated by 90 degrees
     // I've hard coded these just for simplicity
     const color1 = [.75, .85, 1, 1]; // top left
     const color2 = [1, 1, 1, 1]; // bottom right
@@ -65,7 +67,13 @@
     return lerpBetweenColors(color1, color2, t);
   };
 
-  const drawGrid = (ctx: CanvasRenderingContext2D, x, y, w, h, options = {}) => {
+  const drawGrid = (
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    options = {}) => {
     const opts = { ...defaultGridOptions, ...options };
     const points = createPoly(opts);
     opts.diameter = opts.radius * 2;
@@ -77,13 +85,13 @@
         // convert the rgba array to a string
         ctx.fillStyle = `rgba(${color.map(x => x * 255).join(',')})`;
         ctx.strokeStyle = ctx.fillStyle;
-        ctx.lineJoin = opts.lineJoin;
+        ctx.lineJoin = opts.lineJoin as CanvasLineJoin;
         drawPoly(ctx, gridToPixel(gx, gy, opts), points, opts);
       }
     }
   };
 
-  const gridToPixel = (gridX, gridY, opts) => {
+  const gridToPixel = (gridX: number, gridY: number, opts) => {
     const m = gridMeasurements(opts);
     return toPoint(
       Math.floor(gridX * m.gridSpaceX),
@@ -91,7 +99,7 @@
     );
   };
 
-  const drawPoly = (ctx: CanvasRenderingContext2D, origin, points, opts) => {
+  const drawPoly = (ctx: CanvasRenderingContext2D, origin: Point, points: Point[], opts) => {
     // ctx.strokeStyle = opts.strokeStyle;
     ctx.save();
     ctx.translate(origin.x, origin.y);
@@ -102,7 +110,7 @@
     if (opts.strokeStyle) ctx.stroke();
   };
 
-  const createPoly = (opts, points = []) => {
+  const createPoly = (opts, points: Point[] = []) => {
     const
       { inset, radius, sides } = opts,
       size = radius - inset,
@@ -129,7 +137,7 @@
     };
   };
 
-  const polyPath3 = (ctx: CanvasRenderingContext2D, points = []) => {
+  const polyPath3 = (ctx: CanvasRenderingContext2D, points: Point[]) => {
     const [{ x: startX, y: startY }] = points;
     ctx.beginPath();
     ctx.moveTo(startX, startY);
@@ -137,16 +145,16 @@
     ctx.closePath();
   };
 
-  const toPoint = (x: number, y: number) => ({ x, y });
+  const toPoint = (x: number, y: number) => ({ x, y }) as Point;
 
   const toPolarCoordinate = (
     centerX: number,
     centerY: number,
     radius: number,
-    angle: number) => ({
-    x: centerX + radius * Math.cos(angle),
-    y: centerY + radius * Math.sin(angle)
-  });
+    angle: number) => toPoint(
+    centerX + radius * Math.cos(angle),
+    centerY + radius * Math.sin(angle)
+  );
 
   let canvasElement: HTMLCanvasElement | null = null;
   onMount(() => {
