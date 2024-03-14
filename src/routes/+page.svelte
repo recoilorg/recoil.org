@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import { faEnvelope, faDatabase, faTerminal } from '@fortawesome/free-solid-svg-icons'
+  import { faEnvelope, faDatabase, faCircleNodes } from '@fortawesome/free-solid-svg-icons'
   import { faMastodon } from '@fortawesome/free-brands-svg-icons';
 
   import HexIcon from '$lib/components/hex-icon.svelte';
@@ -80,8 +80,8 @@
     },
     {
       name: 'Hub',
-      icon: faTerminal,
-      iconPadding: 'p-1',
+      icon: faCircleNodes,
+      iconPadding: 'p-0',
       url: 'https://headscale.net',
       text: ''
     },
