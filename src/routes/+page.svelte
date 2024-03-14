@@ -61,28 +61,28 @@
     {
       name: 'Matrix',
       svg: matrixIcon,
-      url: null,
+      url: 'https://recoil.org/',
       tex: 'We run our own Matrix server for chat and collaboration'
     },
     {
       name: 'Email',
       icon: faEnvelope,
       iconPadding: 'p-0',
-      url: null,
+      url: 'mailto:postmaster@recoil.org',
       text: 'recoil.org has hosted its own mail service since the very beginning in 1998!'
     },
     {
-      name: 'Backups',
+      name: 'Storage',
       icon: faDatabase,
       iconPadding: 'p-1',
-      url: null,
+      url: 'https://openzfs.org/',
       text: ''
     },
     {
-      name: 'Shell',
+      name: 'Hub',
       icon: faTerminal,
       iconPadding: 'p-1',
-      url: null,
+      url: 'https://headscale.net',
       text: ''
     },
   ];
@@ -96,7 +96,7 @@
   <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-gray-800">
     recoil.org/<span style="color: {secondaryColor}"><Scrambler phrases={phrases}/></span>
   </h1>
-  <p class="text-sm md:text-base">Purveyors of artisinal internet services since 1998</p>
+  <p class="text-sm md:text-base">Purveyors of artisanal internet services since 1998</p>
 
   <div class="w-full mt-10">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
