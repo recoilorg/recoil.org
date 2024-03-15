@@ -7,5 +7,5 @@ WORKDIR /app
 RUN npm install
 RUN npm run build
 
-FROM scratch
-COPY --from=build /app/build /
+FROM alpine
+COPY --from=build /app/build /www
