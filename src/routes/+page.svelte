@@ -92,7 +92,7 @@
 <svelte:head>
   <title>recoil.org - Homepage</title>
 </svelte:head>
-<div class="w-full mx-auto justify-center p-10" style="z-index:2">
+<div class="w-full mx-auto justify-center p-7" style="z-index:2">
   <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black text-gray-800">
     recoil.org/<span style="color: {secondaryColor}"><Scrambler phrases={phrases}/></span>
   </h1>
