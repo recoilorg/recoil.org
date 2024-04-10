@@ -24,6 +24,11 @@ The docker image binds to port 80, so replace the local 3333 with whatever you l
 1. `docker build . -t recoilorg`
 2. `docker run -p 3333:80 recoilorg`
 
+## Amok deploy
+
+1. Get a root shell on amok.recoil.org
+2. Run /root/recoil.org/run.sh
+
 ## Notes
 
 This is an initial minimal build so we find it easier to maintain and extend
