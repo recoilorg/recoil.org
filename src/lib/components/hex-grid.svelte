@@ -91,7 +91,7 @@
     }
   };
 
-  const gridToPixel = (gridX: number, gridY: number, opts) => {
+  const gridToPixel = (gridX: number, gridY: number, opts: any) => {
     const m = gridMeasurements(opts);
     return toPoint(
       Math.floor(gridX * m.gridSpaceX),
@@ -99,7 +99,7 @@
     );
   };
 
-  const drawPoly = (ctx: CanvasRenderingContext2D, origin: Point, points: Point[], opts) => {
+  const drawPoly = (ctx: CanvasRenderingContext2D, origin: Point, points: Point[], opts: any) => {
     // ctx.strokeStyle = opts.strokeStyle;
     ctx.save();
     ctx.translate(origin.x, origin.y);
@@ -110,7 +110,7 @@
     if (opts.strokeStyle) ctx.stroke();
   };
 
-  const createPoly = (opts, points: Point[] = []) => {
+  const createPoly = (opts: any, points: Point[] = []) => {
     const
       { inset, radius, sides } = opts,
       size = radius - inset,
@@ -121,7 +121,7 @@
     return points;
   };
 
-  const gridMeasurements = (opts) => {
+  const gridMeasurements = (opts: any) => {
     const
       { diameter, inset, radius, sides } = opts,
       edgeLength = Math.sin(Math.PI / sides) * diameter,
@@ -156,7 +156,7 @@
     centerY + radius * Math.sin(angle)
   );
 
-  let canvasElement: HTMLCanvasElement | null = null;
+  let canvasElement: HTMLCanvasElement | null = $state(null);
   onMount(() => {
     if (!canvasElement) return;
     main(canvasElement);

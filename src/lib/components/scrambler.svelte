@@ -1,13 +1,14 @@
 <script lang='js'>
   import { onMount } from "svelte";
 
-  export let phrases = ['mastodon', 'peertube'];
+  let { phrases = ['mastodon', 'peertube'] } = $props();
 
   class TextScramble {
     constructor(el) {
       this.el = el
       this.chars = '!<>-_\\/[]{}—=+*^?#________'
       this.update = this.update.bind(this)
+      this.frame = 0
     }
     setText(newText) {
       const oldText = this.el.innerText
@@ -60,6 +61,10 @@
   onMount(() => {
 
     const el = document.querySelector('.scramble-text')
+    if (!el) {
+      console.error('Element with class "scramble-text" not found.')
+      return
+    }
     const fx = new TextScramble(el)
 
     // Create an array of indices from 0 to the length of the phrases array

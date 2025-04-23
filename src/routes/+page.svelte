@@ -1,6 +1,6 @@
 <script lang='ts'>
-  import { faEnvelope, faDatabase, faCircleNodes } from '@fortawesome/free-solid-svg-icons'
-  import { faMastodon } from '@fortawesome/free-brands-svg-icons';
+  import { faEnvelope, faDatabase, faCircleNodes, faMap } from '@fortawesome/free-solid-svg-icons'
+  import { faMastodon, faWikipediaW } from '@fortawesome/free-brands-svg-icons';
 
   import HexIcon from '$lib/components/hex-icon.svelte';
   import Scrambler from '$lib/components/scrambler.svelte';
@@ -47,7 +47,7 @@
   let services = [
     {
       name: 'Mastodon',
-      icon: faMastodon,
+      faIcon: faMastodon,
       iconPadding: 'p-0',
       url: 'https://amok.recoil.org',
       text: 'We have a small, closed instance of Mastodon for all recoil.org users'
@@ -66,23 +66,37 @@
     },
     {
       name: 'Email',
-      icon: faEnvelope,
+      faIcon: faEnvelope,
       iconPadding: 'p-0',
       url: 'mailto:postmaster@recoil.org',
       text: 'recoil.org has hosted its own mail service since the very beginning in 1998!'
     },
     {
       name: 'Storage',
-      icon: faDatabase,
+      faIcon: faDatabase,
       iconPadding: 'p-1',
       url: 'https://openzfs.org/',
       text: ''
     },
     {
       name: 'Hub',
-      icon: faCircleNodes,
+      faIcon: faCircleNodes,
       iconPadding: 'p-0',
       url: 'https://headscale.net',
+      text: ''
+    },
+    {
+      name: 'Wiki',
+      faIcon: faWikipediaW,
+      iconPadding: 'pt-1',
+      url: 'https://wiki.recoil.org',
+      text: ''
+    },
+    {
+      name: 'Reforger Maps',
+      faIcon: faMap,
+      iconPadding: 'p-0',
+      url: 'https://reforger.recoil.org',
       text: ''
     },
   ];
@@ -105,10 +119,10 @@
         <div class="py-5 flex items-start justify-between shadow-md bg-clip-border rounded-xl bg-white hover:bg-slate-200">
             <div class="flex gap-5 pl-6">
               <div class="w-16 relative">
-                {#if service.icon}
-                  <HexIcon icon={service.icon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor} />
+                {#if service.faIcon}
+                  <HexIcon faIcon={service.faIcon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor} />
                 {:else}
-                  <HexIcon icon={service.icon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor}>
+                  <HexIcon faIcon={service.faIcon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor}>
                     {@html service.svg}
                   </HexIcon>
                {/if}

@@ -2,10 +2,22 @@
   import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
   import Fa from "svelte-fa";
 
-  export let iconColor = '#AFA';
-  export let secondaryColor = '#2A8';
-  export let icon: IconDefinition | null = null;
-  export let iconPadding = 'p-2';
+  interface Props {
+    iconColor?: string;
+    secondaryColor?: string;
+    faIcon?: IconDefinition | null;
+    lucideIcon?: string | null;
+    iconPadding?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    iconColor = '#AFA',
+    secondaryColor = '#2A8',
+    faIcon = null,
+    iconPadding = 'p-2',
+    children
+  }: Props = $props();
 </script>
 <div class="w-full h-auto min-w-16">
   <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" viewBox="0 0 87 87">
@@ -13,9 +25,9 @@
   </svg>
 </div>
 <div class="w-1/2 h-auto absolute top-4 left-1/4 rounded-lg">
-  {#if icon}
-  <Fa icon={icon} class='!w-full !h-full {iconPadding}' color="{iconColor}" />
+  {#if faIcon}
+  <Fa icon={faIcon} class='!w-full !h-full {iconPadding}' color={iconColor} />
   {:else}
-  <slot />
+  {@render children?.()}
   {/if}
 </div>
