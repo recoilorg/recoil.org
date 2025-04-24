@@ -65,6 +65,27 @@
       tex: 'We run our own Matrix server for chat and collaboration'
     },
     {
+      name: 'Wiki',
+      faIcon: faWikipediaW,
+      iconPadding: 'pt-1',
+      url: 'https://wiki.recoil.org',
+      text: ''
+    },
+    {
+      name: 'Reforger Maps',
+      faIcon: faMap,
+      iconPadding: 'p-0',
+      url: 'https://reforger.recoil.org',
+      text: ''
+    },
+    {
+      name: 'Karakeep',
+      img: '/karakeep_logo.png',
+      iconPadding: 'pt-1',
+      url: 'https://hoard.recoil.org',
+      text: ''
+    },
+    {
       name: 'Email',
       faIcon: faEnvelope,
       iconPadding: 'p-0',
@@ -83,20 +104,6 @@
       faIcon: faCircleNodes,
       iconPadding: 'p-0',
       url: 'https://headscale.net',
-      text: ''
-    },
-    {
-      name: 'Wiki',
-      faIcon: faWikipediaW,
-      iconPadding: 'pt-1',
-      url: 'https://wiki.recoil.org',
-      text: ''
-    },
-    {
-      name: 'Reforger Maps',
-      faIcon: faMap,
-      iconPadding: 'p-0',
-      url: 'https://reforger.recoil.org',
       text: ''
     },
   ];
@@ -121,11 +128,15 @@
               <div class="w-16 relative">
                 {#if service.faIcon}
                   <HexIcon faIcon={service.faIcon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor} />
-                {:else}
-                  <HexIcon faIcon={service.faIcon} iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor}>
+                {:else if service.svg}
+                  <HexIcon iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor}>
                     {@html service.svg}
                   </HexIcon>
-               {/if}
+                {:else}
+                <HexIcon iconPadding={service.iconPadding} iconColor={iconColor} secondaryColor={secondaryColor}>
+                  <img src={service.img} alt={service.name} class="opacity-80 w-14" />
+                </HexIcon>
+             {/if}
               </div>
               <div class="flex items-center">
                 {#if service.url}
