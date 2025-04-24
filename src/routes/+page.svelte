@@ -108,7 +108,7 @@
     },
   ];
 
-  let phrases = services.map(s => s.name.toLowerCase());
+  let phrases = services.map(s => s.name.toLowerCase()).filter(name => !name.includes(' '));
 </script>
 <svelte:head>
   <title>recoil.org - Homepage</title>
