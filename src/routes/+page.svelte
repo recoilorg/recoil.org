@@ -123,7 +123,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {#each services as service}
       <a href={service.url}>    
-        <div class="py-5 flex items-start justify-between shadow-md bg-clip-border rounded-xl bg-white hover:bg-slate-200">
+        <div class="py-5 flex items-start justify-between shadow-md bg-clip-border rounded-xl bg-white hover:bg-blue-200">
             <div class="flex gap-5 pl-6">
               <div class="w-16 relative">
                 {#if service.faIcon}
@@ -141,7 +141,7 @@
               <div class="flex items-center">
                 {#if service.url}
                   <div class="block text-lg text-gray-800 font-semibold">{service.name}
-                  <span class="block text-sm font-normal text-blue-600">{service.url}</span>
+                  <span class="block text-sm font-normal text-blue-700">{service.url}</span>
                   </div>
                 {:else}
                   <div class="block text-2xl text-gray-800 font-semibold">{service.name}</div>
@@ -157,11 +157,11 @@
   <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
     {#each getRandomAvatarPair() as avatar}
       <a href={avatar.link}>
-        <div class="shadow-md bg-clip-border rounded-xl w-full p-6 bg-white hover:bg-slate-200">
+        <div class="shadow-md bg-clip-border rounded-xl w-full p-6 bg-white hover:bg-blue-200">
           <div class="flex items-center gap-4">
             <img width="64px" height="64px" class="w-16 h-16 rounded-xl" src={avatar.path} alt="{avatar.alt}">
             <div>
-              <div class="font-semibold text-gray-800">{avatar.alt}</div>
+              <div class="text-lg font-semibold text-gray-800">{avatar.alt}</div>
               <div class="text-sm text-gray-500 text-blue-600">{avatar.link}</div>
             </div>
           </div>  
